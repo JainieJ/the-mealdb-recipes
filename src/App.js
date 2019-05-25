@@ -1,21 +1,31 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Default from "./pages/Default";
-import Recipe from "./pages/Recipe";
+import Recipes from "./pages/Recipes";
 import SingleRecipe from "./pages/SingleRecipe";
 import MainIngredient from "./pages/MainIngredinet";
 
 function App() {
   return (
-    <>
-      <Home />
-      <Default />
-      <Recipe />
-      <SingleRecipe />
-      <MainIngredient />
-    </>
+    <Router>
+      <div>
+        {/* navbar here */}
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/recipes" exact component={Recipes} />
+          <Route
+            path="/recipes/main_ingredient"
+            exact
+            component={MainIngredient}
+          />
+          <Route path="/recipes/:id" component={SingleRecipe} />
+          <Route component={Default} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
