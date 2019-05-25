@@ -7,12 +7,13 @@ import Default from "./pages/Default";
 import Recipes from "./pages/Recipes";
 import SingleRecipe from "./pages/SingleRecipe";
 import MainIngredient from "./pages/MainIngredinet";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <Router>
       <div>
-        {/* navbar here */}
+        <NavBar />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/recipes" exact component={Recipes} />
