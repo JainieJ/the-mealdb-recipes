@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Search from "../components/Search";
 import { data } from "../data/data";
-import IngredientList from "../components/IngredientList";
+import IngredientList from "./../components/IngredientList";
 
 class Recipes extends Component {
   state = {

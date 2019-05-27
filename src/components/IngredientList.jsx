@@ -1,5 +1,5 @@
 import React from "react";
-import Ingredient from "./Ingredient";
+import ListItem from "./ListItem";
 
 const IngredientList = ({ ingredients }) => {
   return (
@@ -7,7 +7,12 @@ const IngredientList = ({ ingredients }) => {
       {ingredients.map(ingredient => {
         console.log(ingredient);
         return (
-          <Ingredient key={ingredient.idCategory} ingredient={ingredient} />
+          <ListItem
+            key={ingredient.idCategory}
+            img={ingredient.strCategoryThumb}
+            title={ingredient.strCategory}
+            linkText="see more"
+          />
         );
       })}
     </div>

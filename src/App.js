@@ -18,8 +18,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/recipes" exact component={Recipes} />
           <Route
-            path="/recipes/main_ingredient"
-            exact
+            path="/recipes/main_ingredient/:name"
             component={MainIngredient}
           />
           <Route path="/recipes/:id" component={SingleRecipe} />
