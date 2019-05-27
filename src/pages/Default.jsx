@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import Header from "./../components/Header";
 
 class Default extends Component {
   state = {};
   render() {
-    return <h1>Hello from Default</h1>;
+    return <Header text="page not found" link="/" linkText="home" />;
   }
 }
 

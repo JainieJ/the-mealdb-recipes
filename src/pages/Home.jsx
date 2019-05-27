@@ -1,9 +1,16 @@
 import React, { Component } from "react";
+import Header from "../components/Header";
 
 class Home extends Component {
-  state = {};
   render() {
-    return <h1>Hello from Home</h1>;
+    return (
+      <Header
+        text="search for recipes"
+        link="/recipes"
+        linkText="find recipes"
+        styleClass="header-hero"
+      />
+    );
   }
 }
 

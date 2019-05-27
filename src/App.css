@@ -13,3 +13,20 @@ body {
 .letter-spacing {
   letter-spacing: 0.5rem;
 }
+
+.header-hero,
+.default-hero {
+  background: url("./img/header.jpg") no-repeat;
+  min-height: calc(100vh - 67px);
+}
+
+.default-hero {
+  background: url("./img/default.jpg") no-repeat;
+}
+
+@media screen and (max-width: 719px) {
+  .header-hero,
+  .default-hero {
+    min-height: calc(100vh - 147px);
+  }
+}
