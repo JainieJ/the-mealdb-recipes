@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import Search from "../components/Search";
+import { data } from "../data/data";
+import IngredientList from "../components/IngredientList";
 
 class Recipes extends Component {
   state = {
-    search: ""
+    search: "",
+    ingredients: data
   };
   handleChange = e => {
     this.setState({ search: e.currentTarget.value });
@@ -21,6 +24,7 @@ class Recipes extends Component {
           handleSubmit={this.handleSubmit}
         />
         {/* row for ingredients */}
+        <IngredientList ingredients={this.state.ingredients} />
       </div>
     );
   }
