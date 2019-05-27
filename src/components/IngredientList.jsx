@@ -5,7 +5,6 @@ const IngredientList = ({ ingredients }) => {
   return (
     <div className="row">
       {ingredients.map(ingredient => {
-        console.log(ingredient);
         return (
           <ListItem
             key={ingredient.idCategory}
