@@ -18,14 +18,15 @@ class SingleRecipe extends Component {
     }
   }
   getIngredients = () => {
-    const ingredientsArr = Object.keys(this.state.meal)
+    const { meal } = this.state;
+    const ingredientsArr = Object.keys(meal)
       .filter(key => key.startsWith("strIngredient"))
-      .filter(ingredient => Boolean(this.state.meal[ingredient]) === true)
-      .map(ingredient => this.state.meal[ingredient]);
-    const measureArr = Object.keys(this.state.meal)
+      .filter(ingredient => Boolean(meal[ingredient]) === true)
+      .map(ingredient => meal[ingredient]);
+    const measureArr = Object.keys(meal)
       .filter(key => key.startsWith("strMeasure"))
-      .filter(measure => Boolean(this.state.meal[measure]) === true)
-      .map(measure => this.state.meal[measure]);
+      .filter(measure => Boolean(meal[measure]) === true)
+      .map(measure => meal[measure]);
     let ingredients = [];
     for (let i = 0; i < ingredientsArr.length; i++) {
       ingredients.push(`${ingredientsArr[i]} ${measureArr[i]}`);
