@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import Search from "../components/Search";
-import IngredientList from "./../components/IngredientList";
+import ListItem from "./../components/ListItem";
 
 class Recipes extends Component {
+  constructor(props) {
+    super(props);
+    this.getRecipesByName = this.getRecipesByName.bind(this);
+  }
   state = {
     search: "",
-    ingredients: []
+    ingredients: [],
+    meals: [],
+    recipeRequested: false
   };
 
   async componentDidMount() {
@@ -25,19 +31,56 @@ class Recipes extends Component {
     this.setState({ search: e.currentTarget.value });
   };
   handleSubmit = e => {
-    // e.preventDefault();
-    console.log(this.state.search);
+    e.preventDefault();
+    this.getRecipesByName();
   };
+  async getRecipesByName() {
+    try {
+      const { search } = this.state;
+      const recipeResponse = await fetch(
+        `https://www.themealdb.com/api/json/v2/${
+          process.env.REACT_APP_API_KEY
+        }/search.php?s=${search}`
+      );
+      const recipeJson = await recipeResponse.json();
+      this.setState({ meals: recipeJson.meals, recipeRequested: true });
+    } catch (err) {
+      console.log(err);
+    }
+  }
   render() {
+    const { meals, ingredients, search, recipeRequested } = this.state;
     return (
       <div className="container">
         <Search
-          value={this.state.search}
+          value={search}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        {/* row for ingredients */}
-        <IngredientList ingredients={this.state.ingredients} />
+        {/* row for recipes by name or ingredients */}
+        <div className="row">
+          {recipeRequested
+            ? meals.map(meal => (
+                <ListItem
+                  key={meal.idMeal}
+                  img={meal.strMealThumb}
+                  title={meal.strMeal}
+                  linkUrl={`/recipes/${meal.idMeal}`}
+                  linkText="details"
+                  styleClass="col-sm-6 col-md-4"
+                />
+              ))
+            : ingredients.map(ingredient => (
+                <ListItem
+                  key={ingredient.idCategory}
+                  img={ingredient.strCategoryThumb}
+                  title={ingredient.strCategory}
+                  linkUrl={`/recipes/main_ingredient/${ingredient.strCategory}`}
+                  linkText="see more"
+                  styleClass="col-md-6 col-lg-4"
+                />
+              ))}
+        </div>
       </div>
     );
   }
