@@ -13,7 +13,7 @@ const ImageToggler = ({
       <img
         src={img}
         alt="main ingredient"
-        className="d-block w-100 mt-5"
+        className="d-block mx-auto w-100 mt-5"
         style={{ maxHeight: "18rem", maxWidth: "18rem" }}
       />
       <div>
@@ -34,7 +34,7 @@ const ImageToggler = ({
           <i className="fas fa-angle-right" />
         </button>
       </div>
-      <h2 className="text-orange text-slanted text-orange">{name}</h2>
+      <h5 className="text-orange text-slanted text-orange">{name}</h5>
     </div>
   );
 };

@@ -46,7 +46,8 @@ class Recipes extends Component {
       const recipeJson = await recipeResponse.json();
       if (!recipeJson.meals) {
         this.setState({
-          error: "Search returned no results. Please, try again",
+          error:
+            "Search returned no results. Please, try again or press search to get random recipes",
           search: ""
         });
       } else {

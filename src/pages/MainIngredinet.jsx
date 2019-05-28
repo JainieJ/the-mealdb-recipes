@@ -71,41 +71,41 @@ class MainIngredient extends Component {
     const { meals, mealImg, mealArray, currentIndex, loaded } = this.state;
     return (
       <div className="container">
-        <div className="row">
-          {!loaded ? (
+        {!loaded ? (
+          <div className="row">
             <div className="col-10 mx-auto text-center mt-5 text-capitalize text-slanted">
               <h3>Loading info</h3>
             </div>
-          ) : (
-            <>
-              <ImageToggler
-                img={mealImg}
-                index={currentIndex}
-                array={mealArray}
-                showPreviousIngredient={this.showPreviousIngredient}
-                showNextIngredient={this.showNextIngredient}
-                name={match.params.name}
-              />
-              <div className="col-10 mx-auto col-sm-9 my-3 text-center text-slanted text-muted">
-                <h1>List of Meals</h1>
-                <div className="container">
-                  <div className="row">
-                    {meals.map(meal => (
-                      <ListItem
-                        key={meal.idMeal}
-                        img={meal.strMealThumb}
-                        title={meal.strMeal}
-                        linkText="details"
-                        linkUrl={`/recipes/${meal.idMeal}`}
-                        styleClass="col-sm-6 col-md-4"
-                      />
-                    ))}
-                  </div>
+          </div>
+        ) : (
+          <div className="row">
+            <ImageToggler
+              img={mealImg}
+              index={currentIndex}
+              array={mealArray}
+              showPreviousIngredient={this.showPreviousIngredient}
+              showNextIngredient={this.showNextIngredient}
+              name={match.params.name}
+            />
+            <div className="col-10 mx-auto col-sm-9 my-3 text-center text-slanted text-muted">
+              <h1>List of Meals</h1>
+              <div className="container">
+                <div className="row">
+                  {meals.map(meal => (
+                    <ListItem
+                      key={meal.idMeal}
+                      img={meal.strMealThumb}
+                      title={meal.strMeal}
+                      linkText="details"
+                      linkUrl={`/recipes/${meal.idMeal}`}
+                      styleClass="col-sm-6 col-md-4"
+                    />
+                  ))}
                 </div>
               </div>
-            </>
-          )}
-        </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

@@ -24,9 +24,9 @@ body {
   background: url("./img/default.jpg") no-repeat;
 }
 
-@media screen and (max-width: 719px) {
+/* @media screen and (max-width: 719px) {
   .header-hero,
   .default-hero {
     min-height: calc(100vh - 147px);
   }
-}
+} */
