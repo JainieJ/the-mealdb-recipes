@@ -87,7 +87,7 @@ class MainIngredient extends Component {
               showNextIngredient={this.showNextIngredient}
               name={match.params.name}
             />
-            <div className="col-10 mx-auto col-sm-9 my-3 text-center text-slanted text-muted">
+            <div className="col-12 mx-auto col-sm-9 my-3 text-center text-slanted text-muted">
               <h1>List of Meals</h1>
               <div className="container">
                 <div className="row">

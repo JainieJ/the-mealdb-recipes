@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Open Sans", sans-serif !important;
 }
@@ -16,12 +21,12 @@ body {
 
 .header-hero,
 .default-hero {
-  background: url("./img/header.jpg") no-repeat;
+  background: url("./img/header.jpg") center/cover no-repeat;
   min-height: calc(100vh - 67px);
 }
 
 .default-hero {
-  background: url("./img/default.jpg") no-repeat;
+  background: url("./img/default.jpg") center/cover no-repeat;
 }
 
 /* @media screen and (max-width: 719px) {

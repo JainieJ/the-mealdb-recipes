@@ -43,14 +43,14 @@ class SingleRecipe extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-10 mx-auto col-md-4 my-3">
+          <div className="col-10 mx-auto col-md-4 my-3 text-center">
             <Link to="/recipes" className="btn btn-warning text-uppercase my-3">
               back to search
             </Link>
             <img
               src={img}
               alt="meal"
-              className="d-block w-100 mt-2"
+              className="d-block w-100 mx-auto mt-2"
               style={{ maxHeight: "18rem", maxWidth: "18rem" }}
             />
             <ul className="text-slanted mt-3">
@@ -58,7 +58,7 @@ class SingleRecipe extends Component {
                 return (
                   <li
                     key={index}
-                    style={{ fontSize: "0.8rem", listStyle: "none" }}
+                    style={{ fontSize: "1rem", listStyle: "none" }}
                   >
                     {i}
                   </li>
@@ -77,7 +77,7 @@ class SingleRecipe extends Component {
               YouTube
             </a>
             <h3 className="text-slanted text-orange my-2">Instructions</h3>
-            <p style={{ fontSize: "0.8rem" }}>{strInstructions}</p>
+            <p style={{ fontSize: "1rem" }}>{strInstructions}</p>
           </div>
         </div>
       </div>

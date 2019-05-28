@@ -9,7 +9,7 @@ const ImageToggler = ({
   name
 }) => {
   return (
-    <div className="col-10 mx-auto col-sm-3 my-3 text-center">
+    <div className="col-12 mx-auto col-sm-3 my-3 text-center">
       <img
         src={img}
         alt="main ingredient"
