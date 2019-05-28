@@ -1,16 +1,23 @@
 import React, { Component } from "react";
-import { meal } from "../data/meal";
 import { Link } from "react-router-dom";
 
 class SingleRecipe extends Component {
-  state = { meal };
-  render() {
-    const {
-      strMealThumb: img,
-      strMeal: title,
-      strYoutube: linkYoutube,
-      strInstructions
-    } = this.state.meal;
+  state = { meal: {} };
+  async componentDidMount() {
+    try {
+      const { match } = this.props;
+      const recipeResponse = await fetch(
+        `https://www.themealdb.com/api/json/v2/${
+          process.env.REACT_APP_API_KEY
+        }/lookup.php?i=${match.params.id}`
+      );
+      const recipeJson = await recipeResponse.json();
+      this.setState({ meal: recipeJson.meals[0] });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  getIngredients = () => {
     const ingredientsArr = Object.keys(this.state.meal)
       .filter(key => key.startsWith("strIngredient"))
       .filter(ingredient => Boolean(this.state.meal[ingredient]) === true)
@@ -23,7 +30,15 @@ class SingleRecipe extends Component {
     for (let i = 0; i < ingredientsArr.length; i++) {
       ingredients.push(`${ingredientsArr[i]} ${measureArr[i]}`);
     }
-
+    return ingredients;
+  };
+  render() {
+    const {
+      strMealThumb: img,
+      strMeal: title,
+      strYoutube: linkYoutube,
+      strInstructions
+    } = this.state.meal;
     return (
       <div className="container">
         <div className="row">
@@ -35,10 +50,10 @@ class SingleRecipe extends Component {
               src={img}
               alt="meal"
               className="d-block w-100 mt-2"
-              style={{ maxHeight: "30rem" }}
+              style={{ maxHeight: "18rem", maxWidth: "18rem" }}
             />
             <ul className="text-slanted mt-3">
-              {ingredients.map((i, index) => {
+              {this.getIngredients().map((i, index) => {
                 return (
                   <li
                     key={index}
@@ -61,7 +76,7 @@ class SingleRecipe extends Component {
               YouTube
             </a>
             <h3 className="text-slanted text-orange my-2">Instructions</h3>
-            <p style={{ fontSize: "1rem" }}>{strInstructions}</p>
+            <p style={{ fontSize: "0.8rem" }}>{strInstructions}</p>
           </div>
         </div>
       </div>

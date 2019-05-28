@@ -14,7 +14,7 @@ const ImageToggler = ({
         src={img}
         alt="main ingredient"
         className="d-block w-100 mt-5"
-        style={{ maxHeight: "30rem" }}
+        style={{ maxHeight: "18rem", maxWidth: "18rem" }}
       />
       <div>
         <button

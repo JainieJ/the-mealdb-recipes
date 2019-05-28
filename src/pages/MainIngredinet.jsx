@@ -88,7 +88,7 @@ class MainIngredient extends Component {
                     img={meal.strMealThumb}
                     title={meal.strMeal}
                     linkText="details"
-                    linkUrl="/recipes/:id"
+                    linkUrl={`/recipes/${meal.idMeal}`}
                     styleClass="col-sm-6 col-md-4"
                   />
                 ))}
