@@ -10,6 +10,7 @@ const IngredientList = ({ ingredients }) => {
             key={ingredient.idCategory}
             img={ingredient.strCategoryThumb}
             title={ingredient.strCategory}
+            linkUrl={`/recipes/main_ingredient/${ingredient.strCategory}`}
             linkText="see more"
           />
         );

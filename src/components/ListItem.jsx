@@ -20,6 +20,5 @@ const ListItem = ({ img, title, linkText, styleClass, linkUrl }) => {
 export default ListItem;
 
 ListItem.defaultProps = {
-  styleClass: "col-md-6 col-lg-4",
-  linkUrl: "recipes/main_ingredient/:name"
+  styleClass: "col-md-6 col-lg-4"
 };
