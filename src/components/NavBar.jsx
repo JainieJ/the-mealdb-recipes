@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-sm navbar-light bg-light">
-      <img
-        src="https://www.themealdb.com/images/logo-small.png"
-        alt="mealdb logo"
-        className="navbar-brand"
-      />
+      <Link to="/">
+        <img
+          src="https://www.themealdb.com/images/logo-small.png"
+          alt="mealdb logo"
+          className="navbar-brand"
+        />
+      </Link>
       <div className="collapse navbar-collapse show">
         <ul className="navbar-nav">
           <li className="nav-item">
